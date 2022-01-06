@@ -65,12 +65,12 @@ function activateNavBar(){
 */
 
 // build the nav
-for (var i = 0; i < count; i++){
+for (var i = 1; i <= count; i++){
     var anchor = document.createElement("a");
     anchor.classList.add("inActiveAnchor");
-    anchor.href = "#section"+(i+1);
+    // anchor.href = "#section"+(i);
     var sec = document.createElement("LI");
-    anchor.innerHTML = "Section " + (i+1);
+    anchor.innerHTML = "Section " + (i);
     sec.appendChild(anchor);
     navBar.appendChild(sec);
 }
@@ -107,6 +107,13 @@ window.onscroll = function (){
 // Build menu 
 
 // Scroll to section on link click
+document.querySelectorAll('li').forEach((node) =>{
+    node.addEventListener('click', () =>{
+        document.querySelector('#section' + node.innerText.slice(-1))
+            .scrollIntoView({block: 'start', behavior: 'smooth'});
+        count++;
+    })
+})
 
 // Set sections as active
 
