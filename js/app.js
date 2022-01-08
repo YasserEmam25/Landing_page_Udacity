@@ -24,13 +24,13 @@
  * 
 */
 // get the navbar element
-var navBar = document.getElementById("navbar__list");
+const navBar = document.getElementById("navbar__list");
 
 // number of sections in the navbar
-var count = document.getElementsByClassName("landing__container").length;
+const count = document.getElementsByClassName("landing__container").length;
 
-// the nnumber of the active section
-var activeSection = 0;
+// the number of the active section
+let activeSection = 0;
 
 /**
  * End Global Variables
@@ -65,11 +65,11 @@ function activateNavBar(){
 */
 
 // build the nav
-for (var i = 1; i <= count; i++){
-    var anchor = document.createElement("a");
+for (let i = 1; i <= count; i++){
+    const anchor = document.createElement("a");
     anchor.classList.add("inActiveAnchor");
     // anchor.href = "#section"+(i);
-    var sec = document.createElement("LI");
+    const sec = document.createElement("LI");
     anchor.innerHTML = "Section " + (i);
     sec.appendChild(anchor);
     navBar.appendChild(sec);
@@ -111,7 +111,6 @@ document.querySelectorAll('li').forEach((node) =>{
     node.addEventListener('click', () =>{
         document.querySelector('#section' + node.innerText.slice(-1))
             .scrollIntoView({block: 'start', behavior: 'smooth'});
-        count++;
     })
 })
 
@@ -121,7 +120,7 @@ document.querySelectorAll('li').forEach((node) =>{
 document.querySelectorAll("h2").forEach(function(section) {
     section.onclick = () =>{
         section.classList.toggle("inActive");
-        var para = section.nextElementSibling;
+        const para = section.nextElementSibling;
         if (para.style.display == "none") {
             para.style.display = "block";
         } else {
